@@ -3,32 +3,37 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 /**
- * Button system. Deliberately restrained: one solid forest primary that owns
- * the page's primary action, plus quiet secondary/ghost/link variants so
- * hierarchy never competes. All sizes meet the 44px touch-target minimum.
+ * Button system. One solid forest primary owns the page's single primary
+ * action; quiet secondary/ghost/link variants never compete with it. Motion
+ * follows the brand spec exactly: a 2px lift with a shadow on hover over
+ * 220ms, and a tactile 0.98 compression on press. All sizes clear 44px.
  */
 const buttonVariants = cva(
   cn(
-    "group/button inline-flex select-none items-center justify-center gap-2 whitespace-nowrap",
+    "group/button inline-flex select-none items-center justify-center gap-2 whitespace-nowrap rounded-button",
     "font-sans font-medium tracking-tight",
-    "transition-[background-color,color,border-color,transform,box-shadow] duration-300 ease-[var(--ease-editorial)]",
+    "transition-[background-color,color,border-color,transform,box-shadow] duration-[var(--duration-hover)] ease-[var(--ease-editorial)]",
     "focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-forest",
     "disabled:pointer-events-none disabled:opacity-50",
-    "active:translate-y-px",
+    "hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]",
   ),
   {
     variants: {
       variant: {
         primary:
-          "rounded-pill bg-forest text-paper shadow-[0_1px_2px_rgba(18,39,28,0.25)] hover:bg-forest-deep",
+          "bg-forest text-paper hover:bg-forest-deep hover:shadow-[var(--shadow-button)]",
         secondary:
-          "rounded-pill border border-line-strong bg-transparent text-ink hover:border-forest hover:text-forest",
+          "border border-forest bg-transparent text-forest hover:bg-forest hover:text-paper hover:shadow-[var(--shadow-button)]",
         ghost:
-          "rounded-pill bg-transparent text-ink hover:bg-ink/[0.05]",
+          "text-ink hover:-translate-y-0 hover:bg-ink/[0.05]",
         onDark:
-          "rounded-pill bg-paper text-forest-deep hover:bg-cream",
-        link:
-          "rounded-none px-0 text-forest underline-offset-4 hover:underline",
+          "bg-paper text-forest-deep hover:bg-cream hover:shadow-[var(--shadow-lift)]",
+        link: cn(
+          "rounded-none px-0 text-forest hover:-translate-y-0 active:scale-100",
+          // Underline grows left-to-right on hover, never a bare color change
+          "bg-[linear-gradient(currentColor,currentColor)] bg-[length:0%_1px] bg-[position:0_100%] bg-no-repeat pb-0.5",
+          "transition-[background-size] hover:bg-[length:100%_1px]",
+        ),
       },
       size: {
         sm: "h-11 px-5 text-sm",

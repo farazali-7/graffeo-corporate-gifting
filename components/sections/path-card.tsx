@@ -21,16 +21,16 @@ export function PathCard({ path }: PathCardProps) {
     <RevealItem
       as="li"
       className={cn(
-        "group relative flex flex-col overflow-hidden rounded-lg border p-8 sm:p-10",
-        "transition-[transform,box-shadow] duration-500 ease-[var(--ease-editorial)]",
-        "hover:-translate-y-1 hover:shadow-[var(--shadow-lift)]",
+        "group relative flex flex-col overflow-hidden rounded-card border p-8 sm:p-10",
+        "transition-[transform,box-shadow,border-color] duration-500 ease-[var(--ease-editorial)]",
+        "hover:-translate-y-0.5 hover:shadow-[var(--shadow-lift)]",
         featured
           ? "border-forest-deep bg-forest-deep text-paper"
-          : "border-line bg-cream text-ink",
+          : "border-line bg-cream text-ink hover:border-line-strong",
       )}
     >
       {featured ? (
-        <span className="absolute right-8 top-8 rounded-pill bg-copper/90 px-3 py-1 text-[0.6875rem] font-medium uppercase tracking-eyebrow text-paper">
+        <span className="absolute right-8 top-8 rounded-pill bg-brass px-3 py-1 text-[0.6875rem] font-medium uppercase tracking-eyebrow text-forest-deep">
           Most Popular
         </span>
       ) : null}
@@ -49,7 +49,7 @@ export function PathCard({ path }: PathCardProps) {
       <p
         className={cn(
           "mt-4 text-[0.975rem] leading-relaxed",
-          featured ? "text-paper/75" : "text-stone",
+          featured ? "text-paper/75" : "text-olive-muted",
         )}
       >
         {path.description}
@@ -91,7 +91,7 @@ export function PathCard({ path }: PathCardProps) {
             key={label}
             className={cn(
               "flex items-center gap-2 text-[0.8125rem]",
-              featured ? "text-paper/70" : "text-stone",
+              featured ? "text-paper/70" : "text-olive-muted",
             )}
           >
             <Icon className="size-4" strokeWidth={1.5} />

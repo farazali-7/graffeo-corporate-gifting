@@ -24,21 +24,24 @@ interface RevealProps {
   stagger?: boolean;
 }
 
-const EASE = [0.22, 1, 0.36, 1] as const;
+// Brand motion spec: organic editorial easing, slow and never springy.
+const EASE = [0.22, 0.61, 0.36, 1] as const;
+const DURATION = 0.7;
+const STAGGER = 0.12; // 120ms between related elements
 
 const container: Variants = {
   hidden: {},
   visible: {
-    transition: { staggerChildren: 0.09, delayChildren: 0.05 },
+    transition: { staggerChildren: STAGGER, delayChildren: 0.05 },
   },
 };
 
 const item: Variants = {
-  hidden: { opacity: 0, y: 22 },
+  hidden: { opacity: 0, y: 24 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.8, ease: EASE },
+    transition: { duration: DURATION, ease: EASE },
   },
 };
 
@@ -67,9 +70,9 @@ export function Reveal({
       className={className}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: "0px 0px -12% 0px" }}
+      viewport={{ once: true, amount: 0.25 }}
       variants={stagger ? container : item}
-      transition={stagger ? undefined : { delay, duration: 0.8, ease: EASE }}
+      transition={stagger ? undefined : { delay, duration: DURATION, ease: EASE }}
     >
       {children}
     </MotionTag>
@@ -127,8 +130,8 @@ export function MaskReveal({ children, className, delay = 0 }: MaskRevealProps) 
         className="block"
         initial={{ y: "110%" }}
         whileInView={{ y: "0%" }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.95, ease: EASE, delay }}
+        viewport={{ once: true, amount: 0.6 }}
+        transition={{ duration: 0.9, ease: EASE, delay }}
       >
         {children}
       </motion.span>

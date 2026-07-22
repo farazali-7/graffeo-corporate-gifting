@@ -2,7 +2,7 @@
 
 import { useId, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
-import { Plus } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { FaqItem } from "@/types";
 
@@ -67,13 +67,13 @@ function AccordionRow({ item, isOpen, onToggle }: AccordionRowProps) {
           <span
             aria-hidden
             className={cn(
-              "grid size-9 shrink-0 place-items-center rounded-full border border-line-strong text-stone",
-              "transition-[transform,background-color,color,border-color] duration-400 ease-[var(--ease-editorial)]",
+              "grid size-9 shrink-0 place-items-center rounded-full border border-line-strong text-olive-muted",
+              "transition-[transform,background-color,color,border-color] duration-[var(--duration-hover)] ease-[var(--ease-editorial)]",
               "group-hover:border-forest group-hover:bg-forest group-hover:text-paper",
-              isOpen && "rotate-45 border-forest bg-forest text-paper",
+              isOpen && "rotate-180 border-forest bg-forest text-paper",
             )}
           >
-            <Plus className="size-4" strokeWidth={1.5} />
+            <ChevronDown className="size-4" strokeWidth={1.75} />
           </span>
         </button>
       </h3>
@@ -88,10 +88,10 @@ function AccordionRow({ item, isOpen, onToggle }: AccordionRowProps) {
             initial={reduceMotion ? false : { height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={reduceMotion ? { opacity: 0 } : { height: 0, opacity: 0 }}
-            transition={{ duration: 0.42, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.42, ease: [0.22, 0.61, 0.36, 1] }}
             className="overflow-hidden"
           >
-            <p className="max-w-2xl pb-7 pr-12 text-[1.0625rem] leading-relaxed text-stone">
+            <p className="max-w-2xl pb-7 pr-12 text-[1.0625rem] leading-relaxed text-olive-muted">
               {item.answer}
             </p>
           </motion.div>

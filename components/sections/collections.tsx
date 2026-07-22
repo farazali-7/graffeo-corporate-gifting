@@ -38,24 +38,24 @@ export function Collections() {
         >
           {COLLECTIONS.map((item) => (
             <RevealItem as="li" key={item.name}>
-              <article className="group flex h-full flex-col overflow-hidden rounded-lg border border-line bg-cream transition-shadow duration-500 ease-[var(--ease-editorial)] hover:shadow-[var(--shadow-lift)]">
-                <div className="relative aspect-[4/3] overflow-hidden">
+              <article className="group flex h-full flex-col overflow-hidden rounded-card border border-line bg-cream shadow-[var(--shadow-card)] transition-[box-shadow,border-color,transform] duration-500 ease-[var(--ease-editorial)] hover:-translate-y-0.5 hover:border-line-strong hover:shadow-[var(--shadow-lift)]">
+                <div className="media-grain relative aspect-[4/3] overflow-hidden bg-stone">
                   <Image
                     src={item.image}
                     alt={item.alt}
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-cover transition-transform duration-700 ease-[var(--ease-editorial)] group-hover:scale-[1.04]"
+                    className="object-cover transition-transform duration-700 ease-[var(--ease-editorial)] group-hover:scale-[1.02]"
                   />
                 </div>
                 <div className="flex flex-1 flex-col gap-2 p-6">
-                  <p className="text-xs font-medium uppercase tracking-eyebrow text-copper">
+                  <p className="text-xs font-medium uppercase tracking-eyebrow text-brass-ink">
                     {item.origin}
                   </p>
                   <h3 className="font-display text-2xl font-normal text-ink">
                     {item.name}
                   </h3>
-                  <p className="mt-1 flex-1 text-[0.95rem] leading-relaxed text-stone">
+                  <p className="mt-1 flex-1 text-[0.95rem] leading-relaxed text-olive-muted">
                     {item.note}
                   </p>
                   <p className="mt-4 border-t border-line pt-4 font-display text-lg text-forest">

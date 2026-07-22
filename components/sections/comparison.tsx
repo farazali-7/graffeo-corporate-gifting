@@ -27,7 +27,7 @@ export function Comparison() {
 
         {/* Desktop / tablet: semantic table */}
         <Reveal className="mt-14 hidden md:block">
-          <div className="overflow-hidden rounded-lg border border-line">
+          <div className="overflow-hidden rounded-card border border-line">
             <table className="w-full border-collapse text-left">
               <caption className="sr-only">
                 Comparison of Graffeo self-serve gifting and concierge program
@@ -36,7 +36,7 @@ export function Comparison() {
                 <tr className="bg-cream">
                   <th
                     scope="col"
-                    className="w-2/5 px-6 py-5 text-sm font-medium uppercase tracking-eyebrow text-stone-light"
+                    className="w-2/5 px-6 py-5 text-sm font-medium uppercase tracking-eyebrow text-olive-faint"
                   >
                     Criterion
                   </th>
@@ -68,7 +68,7 @@ export function Comparison() {
                     >
                       {row.criterion}
                     </th>
-                    <td className="px-6 py-5 text-[0.95rem] text-stone">
+                    <td className="px-6 py-5 text-[0.95rem] text-olive-muted">
                       {row.selfServe}
                     </td>
                     <td className="bg-forest/[0.04] px-6 py-5 text-[0.95rem] text-ink">
@@ -86,9 +86,9 @@ export function Comparison() {
           {COMPARISON_ROWS.map((row) => (
             <li
               key={row.criterion}
-              className="rounded-lg border border-line bg-cream p-5"
+              className="rounded-card border border-line bg-cream p-5"
             >
-              <p className="text-xs font-medium uppercase tracking-eyebrow text-stone-light">
+              <p className="text-xs font-medium uppercase tracking-eyebrow text-olive-faint">
                 {row.criterion}
               </p>
               <dl className="mt-4 grid grid-cols-2 gap-4">

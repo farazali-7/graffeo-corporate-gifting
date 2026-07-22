@@ -32,7 +32,7 @@ export function HeritageStrip() {
               <span className="font-display text-4xl font-normal text-forest lg:text-5xl">
                 {stat.value}
               </span>
-              <span className="text-sm leading-snug text-stone">
+              <span className="text-sm leading-snug text-olive-muted">
                 {stat.label}
               </span>
             </RevealItem>

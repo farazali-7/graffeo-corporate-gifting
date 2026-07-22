@@ -33,8 +33,8 @@ export function Section({
       className={cn(
         "relative isolate",
         spacing === "default"
-          ? "py-20 sm:py-28 lg:py-36"
-          : "py-14 sm:py-16 lg:py-20",
+          ? "py-14 sm:py-20 lg:py-36" /* 56 · 80 · 144px */
+          : "py-14 sm:py-16 lg:py-24",
         TONE_CLASSES[tone],
         grain && "texture-grain",
         className,

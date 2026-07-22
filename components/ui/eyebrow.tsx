@@ -16,7 +16,7 @@ export function Eyebrow({ children, className, tone = "default" }: EyebrowProps)
     <span
       className={cn(
         "inline-flex items-center gap-3 text-xs font-medium uppercase tracking-eyebrow",
-        tone === "onDark" ? "text-copper-soft" : "text-copper",
+        tone === "onDark" ? "text-brass-soft" : "text-brass-ink",
         className,
       )}
     >
@@ -24,7 +24,7 @@ export function Eyebrow({ children, className, tone = "default" }: EyebrowProps)
         aria-hidden
         className={cn(
           "h-px w-8",
-          tone === "onDark" ? "bg-copper-soft/60" : "bg-copper/50",
+          tone === "onDark" ? "bg-brass-soft/70" : "bg-brass/70",
         )}
       />
       {children}

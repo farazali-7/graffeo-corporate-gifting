@@ -51,7 +51,7 @@ export function SectionHeading({
         <p
           className={cn(
             "text-pretty text-[length:var(--text-lead)] leading-[var(--text-lead--line-height)]",
-            tone === "onDark" ? "text-paper/70" : "text-stone",
+            tone === "onDark" ? "text-paper/70" : "text-olive-muted",
             centered ? "max-w-2xl" : "max-w-xl",
           )}
         >

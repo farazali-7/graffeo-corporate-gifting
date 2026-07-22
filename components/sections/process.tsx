@@ -39,7 +39,7 @@ export function Process() {
               <h3 className="font-display text-xl font-normal text-ink">
                 {step.title}
               </h3>
-              <p className="text-[0.95rem] leading-relaxed text-stone">
+              <p className="text-[0.95rem] leading-relaxed text-olive-muted">
                 {step.description}
               </p>
             </RevealItem>

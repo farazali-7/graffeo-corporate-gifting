@@ -41,7 +41,14 @@ export function SiteHeader() {
           : "border-b border-transparent bg-transparent",
       )}
     >
-      <Container as="nav" aria-label="Primary" className="flex h-20 items-center justify-between gap-8">
+      <Container
+        as="nav"
+        aria-label="Primary"
+        className={cn(
+          "flex items-center justify-between gap-8 transition-[height] duration-500 ease-[var(--ease-editorial)]",
+          scrolled ? "h-16" : "h-20",
+        )}
+      >
         <Wordmark />
 
         <ul className="hidden items-center gap-9 lg:flex">

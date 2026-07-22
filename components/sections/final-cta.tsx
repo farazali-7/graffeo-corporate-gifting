@@ -12,10 +12,10 @@ import { Reveal, RevealItem } from "@/components/ui/reveal";
 export function FinalCta() {
   return (
     <Section id="final-cta" tone="deep" grain spacing="tight">
-      <Container className="relative overflow-hidden rounded-lg border border-forest/15 bg-forest-deep px-6 py-16 text-center sm:px-12 sm:py-20 lg:py-24">
+      <Container className="relative overflow-hidden rounded-card border border-forest/15 bg-forest-deep px-6 py-16 text-center sm:px-12 sm:py-20 lg:py-24">
         <div
           aria-hidden
-          className="pointer-events-none absolute left-1/2 top-0 -z-0 h-72 w-72 -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(192,122,79,0.28),transparent_65%)] blur-2xl"
+          className="pointer-events-none absolute left-1/2 top-0 -z-0 h-72 w-72 -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(183,138,74,0.26),transparent_65%)] blur-2xl"
         />
 
         <Reveal stagger className="relative z-10 mx-auto flex max-w-2xl flex-col items-center gap-7">

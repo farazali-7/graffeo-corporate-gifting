@@ -28,9 +28,9 @@ export function Testimonials() {
         >
           {TESTIMONIALS.map((t) => (
             <RevealItem as="li" key={t.name}>
-              <figure className="flex h-full flex-col gap-6 rounded-lg border border-paper/12 bg-paper/[0.03] p-8 sm:p-10">
+              <figure className="flex h-full flex-col gap-6 rounded-card border border-paper/12 bg-paper/[0.03] p-8 sm:p-10">
                 <Quote
-                  className="size-8 text-copper-soft"
+                  className="size-8 text-brass-soft"
                   strokeWidth={1.25}
                   aria-hidden
                 />

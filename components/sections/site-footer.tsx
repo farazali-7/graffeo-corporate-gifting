@@ -30,7 +30,7 @@ export function SiteFooter() {
           >
             {FOOTER_COLUMNS.map((column) => (
               <div key={column.title} className="flex flex-col gap-4">
-                <h2 className="text-xs font-medium uppercase tracking-eyebrow text-copper-soft">
+                <h2 className="text-xs font-medium uppercase tracking-eyebrow text-brass-soft">
                   {column.title}
                 </h2>
                 <ul className="flex flex-col gap-3">

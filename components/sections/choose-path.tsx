@@ -34,7 +34,7 @@ export function ChoosePath() {
 
         <Reveal
           as="p"
-          className="mt-10 text-center text-sm text-stone"
+          className="mt-10 text-center text-sm text-olive-muted"
           delay={0.1}
         >
           Still weighing it up? The full breakdown is just below.

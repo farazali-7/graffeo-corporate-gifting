@@ -21,7 +21,7 @@ export default function CorporateGiftingPage() {
     <>
       <a
         href="#choose"
-        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-pill focus:bg-forest focus:px-5 focus:py-3 focus:text-sm focus:font-medium focus:text-paper"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-button focus:bg-forest focus:px-5 focus:py-3 focus:text-sm focus:font-medium focus:text-paper"
       >
         Skip to gifting options
       </a>

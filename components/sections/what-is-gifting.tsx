@@ -1,8 +1,8 @@
-import Image from "next/image";
 import { Leaf, PackageOpen, Stamp } from "lucide-react";
 import { Section } from "@/components/ui/section";
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { MediaFrame } from "@/components/ui/media-frame";
 import { Reveal, RevealItem, MaskReveal } from "@/components/ui/reveal";
 
 const PILLARS = [
@@ -35,15 +35,13 @@ export function WhatIsGifting() {
         {/* Editorial image with mask reveal */}
         <Reveal className="order-last lg:order-first">
           <MaskReveal>
-            <div className="relative aspect-[5/6] w-full overflow-hidden rounded-lg shadow-[var(--shadow-card)]">
-              <Image
-                src="https://images.unsplash.com/photo-1524350876685-274059332603?auto=format&fit=crop&w=1000&q=80"
-                alt="A roaster's hands scooping freshly roasted coffee beans into a paper bag"
-                fill
-                sizes="(max-width: 1024px) 100vw, 45vw"
-                className="object-cover"
-              />
-            </div>
+            <MediaFrame
+              src="https://images.unsplash.com/photo-1524350876685-274059332603?auto=format&fit=crop&w=1000&q=80"
+              alt="A roaster's hands scooping freshly roasted coffee beans into a paper bag"
+              aspect="aspect-[5/6]"
+              sizes="(max-width: 1024px) 100vw, 45vw"
+              className="shadow-[var(--shadow-card)]"
+            />
           </MaskReveal>
         </Reveal>
 
@@ -73,7 +71,7 @@ export function WhatIsGifting() {
                   <h3 className="font-display text-xl font-normal text-ink">
                     {title}
                   </h3>
-                  <p className="max-w-md text-[0.975rem] leading-relaxed text-stone">
+                  <p className="max-w-md text-[0.975rem] leading-relaxed text-olive-muted">
                     {body}
                   </p>
                 </div>
