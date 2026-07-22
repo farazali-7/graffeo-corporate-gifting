@@ -37,7 +37,7 @@ export function SiteHeader() {
       className={cn(
         "sticky top-0 z-40 transition-colors duration-[var(--duration-hover)] ease-[var(--ease-editorial)]",
         scrolled
-          ? "border-b border-line/80 bg-paper/85 backdrop-blur-md"
+          ? "border-b border-line/80 bg-paper/85 backdrop-blur-lg"
           : "border-b border-transparent bg-transparent",
       )}
     >

@@ -110,6 +110,8 @@ interface MaskRevealProps {
   children: ReactNode;
   className?: string;
   delay?: number;
+  /** Reveal duration in seconds. Longer for the hero's curtain image. */
+  duration?: number;
 }
 
 /**
@@ -117,7 +119,12 @@ interface MaskRevealProps {
  * hero headlines and image frames. Falls back to a static block when
  * reduced motion is requested.
  */
-export function MaskReveal({ children, className, delay = 0 }: MaskRevealProps) {
+export function MaskReveal({
+  children,
+  className,
+  delay = 0,
+  duration = 0.9,
+}: MaskRevealProps) {
   const reduceMotion = useReducedMotion();
 
   if (reduceMotion) {
@@ -131,7 +138,7 @@ export function MaskReveal({ children, className, delay = 0 }: MaskRevealProps) 
         initial={{ y: "110%" }}
         whileInView={{ y: "0%" }}
         viewport={{ once: true, amount: 0.6 }}
-        transition={{ duration: 0.9, ease: EASE, delay }}
+        transition={{ duration, ease: EASE, delay }}
       >
         {children}
       </motion.span>

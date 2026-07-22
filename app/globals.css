@@ -38,8 +38,8 @@
   --font-sans: var(--font-instrument), ui-sans-serif, system-ui, sans-serif;
 
   /* Fluid editorial type scale — capped to the brand ratio (H1 64–72px) */
-  --text-display: clamp(2.75rem, 1.55rem + 4.6vw, 4.5rem); /* 44 → 72 */
-  --text-display--line-height: 1.02;
+  --text-display: clamp(2.625rem, 1.35rem + 4.9vw, 4.5rem); /* 42 → 72 */
+  --text-display--line-height: 1.05;
   --text-h1: clamp(2.25rem, 1.55rem + 2.6vw, 3.5rem); /* 36 → 56 */
   --text-h1--line-height: 1.05;
   --text-h2: clamp(1.9rem, 1.3rem + 2.2vw, 3rem); /* 30 → 48 */

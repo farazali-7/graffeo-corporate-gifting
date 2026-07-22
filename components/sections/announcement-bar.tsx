@@ -26,7 +26,7 @@ export function AnnouncementBar() {
           transition={{ duration: 0.5, ease: [0.22, 0.61, 0.36, 1] }}
           className="overflow-hidden bg-forest text-paper"
         >
-          <Container className="relative flex h-8 items-center justify-center gap-x-3 gap-y-1 text-center sm:h-10">
+          <Container className="relative flex h-10 items-center justify-center gap-x-3 gap-y-1 text-center">
             <p className="flex flex-wrap items-center justify-center gap-x-2 text-[0.8125rem] leading-none">
               <span className="font-medium">{ANNOUNCEMENT.message}</span>
               <span aria-hidden className="hidden text-paper/40 sm:inline">

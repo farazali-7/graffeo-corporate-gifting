@@ -38,7 +38,7 @@ export function WhyGraffeo() {
                 alt={point.alt}
                 aspect="aspect-[4/3]"
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                interactive
+                zoom="normal"
                 priority={index === 0}
               />
               <div className="flex flex-col gap-2.5">

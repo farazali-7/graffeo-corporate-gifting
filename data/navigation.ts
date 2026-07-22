@@ -2,9 +2,9 @@ import type { FooterColumn, NavLink } from "@/types";
 
 /** The slim announcement bar surfaced above the navigation. */
 export const ANNOUNCEMENT = {
-  message: "Holiday corporate gifting is open",
+  message: "Holiday Corporate Gifting Available",
   detail: "Plan ahead for teams & clients",
-  cta: { label: "Learn more", href: "#top" },
+  cta: { label: "Learn More", href: "#choose" },
 } as const;
 
 /** In-page navigation. Anchors map to the page's decision-first sections. */
