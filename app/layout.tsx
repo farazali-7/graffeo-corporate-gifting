@@ -69,7 +69,12 @@ export default function RootLayout({
       lang="en"
       className={`${fraunces.variable} ${instrumentSans.variable} antialiased`}
     >
-      <body className="min-h-dvh font-sans">{children}</body>
+      {/* Browser extensions (e.g. ColorZilla, Grammarly) inject attributes on
+          <body> before hydration; suppress the resulting attribute mismatch
+          on this node only — it does not affect children. */}
+      <body className="min-h-dvh font-sans" suppressHydrationWarning>
+        {children}
+      </body>
     </html>
   );
 }

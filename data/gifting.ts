@@ -1,11 +1,15 @@
 import {
   Boxes,
   ClipboardCheck,
-  Clock,
   CreditCard,
+  Gift,
+  Handshake,
+  MailPlus,
+  MapPinOff,
+  Package,
   Palette,
+  Sparkles,
   Truck,
-  UserRound,
   Wallet,
 } from "lucide-react";
 import type {
@@ -15,7 +19,15 @@ import type {
   ProcessStep,
 } from "@/types";
 
-/** Heritage proof points shown beneath the hero. */
+/**
+ * Destination for the self-service store (Zest). Kept as a single constant so
+ * it can be pointed at the live storefront URL in one place.
+ */
+export const GIFTING_STORE_URL = "#choose";
+/** Where custom / bulk enquiries are routed. */
+export const GIFTING_CONTACT_EMAIL = "gifting@graffeo.com";
+
+/** Heritage proof points shown in the "Trusted Since 1935" band. */
 export const HERITAGE_STATS: HeritageStat[] = [
   { value: "1935", label: "Roasting in North Beach" },
   { value: "3 Gen", label: "Family owned & operated" },
@@ -30,107 +42,110 @@ export const HERITAGE_STATS: HeritageStat[] = [
 export const GIFTING_PATHS: GiftingPath[] = [
   {
     id: "self-serve",
-    eyebrow: "Option One",
-    title: "Self-Serve Gifting",
+    eyebrow: "Self-Service",
+    title: "Multi-Recipient Orders",
     description:
-      "Choose a curated coffee gift, add your recipients, and check out in minutes. Ideal when you know what you want and need it handled today.",
+      "Send curated coffee gifts to a group in minutes. Ideal for holiday teams, remote employees, and client appreciation — with no addresses required from you.",
     bestFor: [
-      "Up to 50 recipients",
-      "You want to order right now",
-      "Standard or ready-made gift sets",
+      "Holiday & client gifts",
+      "Remote teams",
+      "Small to medium orders",
+      "You want to send today",
     ],
     highlights: [
-      { icon: Clock, label: "Live in minutes" },
-      { icon: CreditCard, label: "Card checkout" },
-      { icon: Truck, label: "Nationwide shipping" },
+      { icon: MapPinOff, label: "No addresses needed" },
+      { icon: Gift, label: "Personalized note" },
+      { icon: CreditCard, label: "Self checkout" },
     ],
-    cta: { label: "Browse & Send Gifts", href: "#collections" },
+    cta: { label: "Go to Gifting Store", href: GIFTING_STORE_URL },
     featured: true,
   },
   {
     id: "concierge",
-    eyebrow: "Option Two",
-    title: "Concierge Program",
+    eyebrow: "Custom Orders",
+    title: "Custom + Bulk",
     description:
-      "Work one-on-one with a gifting specialist on custom branding, address collection, invoicing, and large or recurring orders. Built for scale.",
+      "Work with our team on branded packaging, bulk pricing, and large or recurring sends — built for events, conferences, and employee welcome kits.",
     bestFor: [
-      "50 to 5,000+ recipients",
-      "Custom branding or hand-notes",
-      "Invoicing, POs & address collection",
+      "Large companies, 50–5,000+",
+      "Custom branding & packaging",
+      "Events & conferences",
+      "Employee welcome kits",
     ],
     highlights: [
       { icon: Palette, label: "Custom branding" },
-      { icon: Wallet, label: "Invoice & PO terms" },
-      { icon: UserRound, label: "Dedicated specialist" },
+      { icon: Wallet, label: "Bulk pricing" },
+      { icon: Handshake, label: "Dedicated support" },
     ],
-    cta: { label: "Talk to a Specialist", href: "#final-cta" },
+    cta: {
+      label: `Email ${GIFTING_CONTACT_EMAIL}`,
+      href: `mailto:${GIFTING_CONTACT_EMAIL}`,
+      external: true,
+    },
   },
 ];
 
-/** Side-by-side breakdown to resolve any lingering uncertainty. */
+/**
+ * Side-by-side breakdown. Booleans render as check/dash glyphs; strings as
+ * short values — decision confidence at a glance, never a wall of prose.
+ */
 export const COMPARISON_ROWS: ComparisonRow[] = [
-  {
-    criterion: "Best recipient count",
-    selfServe: "1 – 50",
-    concierge: "50 – 5,000+",
-  },
-  {
-    criterion: "Setup time",
-    selfServe: "Minutes, self-guided",
-    concierge: "A short call, we build it",
-  },
-  {
-    criterion: "Branding",
-    selfServe: "Signature gift notes",
-    concierge: "Custom ribbon, cards & logo",
-  },
-  {
-    criterion: "Address collection",
-    selfServe: "You upload a list",
-    concierge: "We collect for you, privately",
-  },
-  {
-    criterion: "Payment",
-    selfServe: "Credit card at checkout",
-    concierge: "Invoice, PO or card",
-  },
+  { criterion: "Recipients", selfServe: "1 – 50", concierge: "50 – 5,000+" },
+  { criterion: "Custom branding", selfServe: false, concierge: true },
+  { criterion: "Personalized gift notes", selfServe: true, concierge: true },
+  { criterion: "Bulk pricing", selfServe: false, concierge: true },
   {
     criterion: "Support",
     selfServe: "Email & help center",
-    concierge: "Named specialist, start to finish",
+    concierge: "Dedicated specialist",
+  },
+  {
+    criterion: "Checkout",
+    selfServe: "Card, self-serve",
+    concierge: "Invoice, PO or card",
+  },
+  {
+    criterion: "Shipping",
+    selfServe: "3 – 5 business days",
+    concierge: "Scheduled window",
   },
 ];
 
-/** The reassuring, operational "how it works" narrative. */
+/** The reassuring four-beat narrative: Choose → Customize → Send → Delight. */
 export const PROCESS_STEPS: ProcessStep[] = [
   {
     number: "01",
-    title: "Tell us who it's for",
+    title: "Choose",
     description:
-      "Pick a path and share your recipient count, timing, and any branding you have in mind. No account required to begin.",
+      "Pick your gifting experience — self-service for groups, or custom for branded and bulk sends. No account needed to begin.",
+    icon: Boxes,
   },
   {
     number: "02",
-    title: "We curate the roast",
+    title: "Customize",
     description:
-      "Every gift ships within 48 hours of roasting. Choose a signature collection or let a specialist compose something bespoke.",
+      "Add a personalized gift message. For custom orders, we bring in your branding, packaging, and any hand-notes.",
+    icon: Sparkles,
   },
   {
     number: "03",
-    title: "Addresses, handled",
+    title: "Send",
     description:
-      "Upload your list or let us collect addresses on your behalf — recipients never have to share details with you directly.",
+      "Upload a list, or let recipients enter their own address privately — no chasing details, no shared spreadsheets.",
+    icon: MailPlus,
   },
   {
     number: "04",
-    title: "Sent with intention",
+    title: "Delight",
     description:
-      "We pack, note, and dispatch nationwide. You receive tracking, a single clean invoice, and one point of contact throughout.",
+      "Fresh-roasted coffee arrives beautifully packaged, dispatched within 48 hours, with your name on the note.",
+    icon: Package,
   },
 ];
 
-/** Icons reused by the comparison legend/header. */
+/** Icons reused by the comparison column headers. */
 export const COMPARISON_ICONS = {
   selfServe: Boxes,
   concierge: ClipboardCheck,
+  shipping: Truck,
 } as const;

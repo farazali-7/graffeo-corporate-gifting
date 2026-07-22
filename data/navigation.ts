@@ -1,34 +1,42 @@
 import type { FooterColumn, NavLink } from "@/types";
 
-/** In-page and site navigation. Corporate Gifting is surfaced explicitly. */
+/** The slim announcement bar surfaced above the navigation. */
+export const ANNOUNCEMENT = {
+  message: "Holiday corporate gifting is open",
+  detail: "Plan ahead for teams & clients",
+  cta: { label: "Learn more", href: "#top" },
+} as const;
+
+/** In-page navigation. Anchors map to the page's decision-first sections. */
 export const PRIMARY_NAV: NavLink[] = [
   { label: "The Options", href: "#choose" },
   { label: "How It Works", href: "#process" },
-  { label: "Collections", href: "#collections" },
+  { label: "Why Graffeo", href: "#why" },
+  { label: "Gallery", href: "#gallery" },
   { label: "Questions", href: "#faq" },
 ];
 
 export const PRIMARY_CTA: NavLink = {
-  label: "Start a Gift Order",
+  label: "Start Self-Service Order",
   href: "#choose",
 };
 
 export const FOOTER_COLUMNS: FooterColumn[] = [
   {
-    title: "Gifting",
+    title: "Corporate Gifting",
     links: [
-      { label: "Self-Serve Gifting", href: "#choose" },
-      { label: "Concierge Program", href: "#choose" },
-      { label: "Collections", href: "#collections" },
+      { label: "Multi-Recipient Orders", href: "#choose" },
+      { label: "Custom + Bulk", href: "#choose" },
+      { label: "Gifting Inspiration", href: "#gallery" },
       { label: "Volume Pricing", href: "#faq" },
     ],
   },
   {
     title: "The Roastery",
     links: [
-      { label: "Our Story", href: "#heritage" },
-      { label: "North Beach", href: "#heritage" },
-      { label: "Roasting Method", href: "#process" },
+      { label: "Since 1935", href: "#heritage" },
+      { label: "Why Graffeo", href: "#why" },
+      { label: "How It Works", href: "#process" },
       { label: "Wholesale", href: "#faq" },
     ],
   },

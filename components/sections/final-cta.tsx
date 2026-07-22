@@ -4,6 +4,7 @@ import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { Eyebrow } from "@/components/ui/eyebrow";
 import { Reveal, RevealItem } from "@/components/ui/reveal";
+import { GIFTING_CONTACT_EMAIL, GIFTING_STORE_URL } from "@/data/gifting";
 
 /**
  * The closing action. Restates the fork one last time — send now, or speak to
@@ -27,23 +28,23 @@ export function FinalCta() {
             as="span"
             className="block font-display text-[length:var(--text-h1)] font-normal leading-[var(--text-h1--line-height)] text-balance text-paper"
           >
-            Send something they’ll remember.
+            Ready to send great coffee?
           </RevealItem>
 
           <RevealItem
             as="span"
             className="block max-w-xl text-[length:var(--text-lead)] leading-[var(--text-lead--line-height)] text-paper/70"
           >
-            Start a self-serve order in minutes, or talk to a gifting specialist
-            about a custom program. Either way, the logistics are ours.
+            Start a self-service order in minutes, or talk to our team about a
+            custom program. Either way, the logistics are ours.
           </RevealItem>
 
           <RevealItem className="mt-2 flex flex-col gap-3 sm:flex-row">
             <Button asChild size="lg" variant="onDark">
-              <a href="#collections">
-                Start a Gift Order
+              <a href={GIFTING_STORE_URL}>
+                Start Self-Service
                 <ArrowRight
-                  className="size-4 transition-transform duration-300 ease-[var(--ease-editorial)] group-hover/button:translate-x-1"
+                  className="size-4 transition-transform duration-[var(--duration-hover)] ease-[var(--ease-editorial)] group-hover/button:translate-x-1"
                   strokeWidth={1.75}
                 />
               </a>
@@ -52,9 +53,9 @@ export function FinalCta() {
               asChild
               size="lg"
               variant="secondary"
-              className="border-paper/25 text-paper hover:border-paper hover:text-paper"
+              className="border-paper/25 text-paper hover:border-paper hover:bg-paper hover:text-forest-deep"
             >
-              <a href="mailto:gifting@graffeo.com">Talk to a Specialist</a>
+              <a href={`mailto:${GIFTING_CONTACT_EMAIL}`}>Talk to Our Team</a>
             </Button>
           </RevealItem>
         </Reveal>

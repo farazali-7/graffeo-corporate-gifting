@@ -16,9 +16,9 @@ export function ChoosePath() {
       <Container>
         <SectionHeading
           align="center"
-          eyebrow="Which Option Fits You"
+          eyebrow="Choose Your Gifting Path"
           title="Two ways to gift. Pick the one that sounds like you."
-          description="Most buyers know within a sentence. Choose self-serve to send today, or the concierge program when scale, branding, or invoicing come into play."
+          description="Most buyers know within a sentence. Send to a group yourself today, or work with our team on custom, branded, and bulk orders."
           className="mx-auto"
         />
 

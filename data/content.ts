@@ -1,87 +1,111 @@
-import type { FaqItem, GiftCollection, Testimonial } from "@/types";
+import type { FaqItem, GalleryItem, WhyPoint } from "@/types";
 
 /**
- * Curated gift collections. Images are warm, authentic coffee photography
- * served through next/image. Swap `image` for owned assets in production.
+ * "Why Graffeo" — three editorial reassurances, each a photograph, a title,
+ * and two quiet lines. Emotional trust, not a feature list.
  */
-export const COLLECTIONS: GiftCollection[] = [
+export const WHY_POINTS: WhyPoint[] = [
   {
-    name: "The North Beach",
-    origin: "Signature Espresso Blend",
-    note: "Our house roast in a hand-tied gift box with two ceramic cups.",
-    priceFrom: "From $58",
+    title: "Crafted Since 1935",
+    lines: [
+      "Nearly a century of roasting in North Beach.",
+      "A recipe time has only refined.",
+    ],
     image:
-      "https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=1200&q=80",
-    alt: "Dark roasted espresso coffee beans in a warm ceramic cup on a wooden surface",
+      "https://images.unsplash.com/photo-1442550528053-c431ecb55509?auto=format&fit=crop&w=1000&q=80",
+    alt: "Dark roasted coffee beans spilling from a vintage scoop",
   },
   {
-    name: "The Roaster's Trio",
-    origin: "Three Single Origins",
-    note: "A curated journey through Ethiopia, Colombia, and Sumatra.",
-    priceFrom: "From $84",
+    title: "Family-Owned",
+    lines: [
+      "Three generations, one roastery.",
+      "Every order still passes through our hands.",
+    ],
     image:
-      "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?auto=format&fit=crop&w=1200&q=80",
-    alt: "Three kraft-paper bags of single origin whole bean coffee arranged on linen",
+      "https://images.unsplash.com/photo-1521302080334-4bebac2763a6?auto=format&fit=crop&w=1000&q=80",
+    alt: "A roaster tending to coffee beans in a traditional drum roaster",
   },
   {
-    name: "The Executive",
-    origin: "Reserve & Accoutrements",
-    note: "Reserve micro-lot beans, a pour-over set, and Italian biscotti.",
-    priceFrom: "From $145",
+    title: "Small-Batch Roasting",
+    lines: [
+      "The same beans we serve celebrated kitchens.",
+      "Roasted to order, never mass-produced.",
+    ],
     image:
-      "https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=1200&q=80",
-    alt: "An elegant pour-over coffee setup with freshly brewed coffee and beans nearby",
+      "https://images.unsplash.com/photo-1509785307050-d4066910ec1e?auto=format&fit=crop&w=1000&q=80",
+    alt: "Freshly roasted coffee beans cooling in a roastery tray",
   },
 ];
 
-/** Corporate testimonials — proof this roaster has done this before. */
-export const TESTIMONIALS: Testimonial[] = [
+/**
+ * Corporate-gifting inspiration. Per the brief, we show what gifting looks
+ * like rather than listing testimonials — captioned so buyers can picture the
+ * occasion that fits them. Sizes vary to create an editorial masonry rhythm.
+ */
+export const GALLERY_ITEMS: GalleryItem[] = [
   {
-    quote:
-      "We sent Graffeo to 340 clients for the holidays. One email, one invoice, zero chased addresses. It looked like we'd spent weeks on it.",
-    name: "Marielle Chen",
-    role: "Head of Client Experience",
-    company: "Hartwell & Reed",
+    caption: "Client Appreciation",
+    image:
+      "https://images.unsplash.com/photo-1607344645866-009c320b63e0?auto=format&fit=crop&w=1100&q=80",
+    alt: "An elegant coffee gift box tied with ribbon on a marble table",
+    tall: true,
   },
   {
-    quote:
-      "The concierge team custom-branded every box and collected addresses for us. Our people still bring it up months later.",
-    name: "David Okafor",
-    role: "Office Experience Lead",
-    company: "Northlight Studios",
+    caption: "Employee Onboarding",
+    image:
+      "https://images.unsplash.com/photo-1521302080334-4bebac2763a6?auto=format&fit=crop&w=1100&q=80",
+    alt: "A welcome kit with coffee bags and a handwritten note",
+  },
+  {
+    caption: "Holiday Teams",
+    image:
+      "https://images.unsplash.com/photo-1512568400610-62da28bc8a13?auto=format&fit=crop&w=1100&q=80",
+    alt: "Wrapped holiday coffee gifts arranged with greenery",
+  },
+  {
+    caption: "Conference Welcome Kits",
+    image:
+      "https://images.unsplash.com/photo-1481391319762-47dff72954d9?auto=format&fit=crop&w=1300&q=80",
+    alt: "Branded coffee gifts laid out on a conference table",
+    wide: true,
   },
 ];
 
-/** FAQs written to answer the exact questions that generate support tickets. */
+/** FAQs written to answer the exact decision-anxiety questions from the brief. */
 export const FAQS: FaqItem[] = [
   {
-    question: "Can I send gifts without collecting everyone's address?",
+    question: "What's the difference between self-service and custom orders?",
     answer:
-      "Yes. With the Concierge Program we send each recipient a private link to enter their own shipping details, so no one has to share their address with you. For self-serve orders, you can upload a spreadsheet of addresses at checkout.",
+      "Self-service is our online store for sending curated gifts to up to 50 recipients in minutes — perfect for holiday teams and client appreciation. Custom orders are handled by our team for larger, branded, or recurring sends, with bulk pricing and bespoke packaging.",
   },
   {
-    question: "How many gifts can I send at once?",
+    question: "Do I need recipients' addresses?",
     answer:
-      "Self-serve handles up to 50 recipients comfortably. For anything larger — up to several thousand — the Concierge Program is purpose-built, with dedicated production and delivery scheduling.",
+      "No. For both paths we can send each recipient a private link to enter their own shipping details, so no one has to share an address with you. If you'd rather, you can upload a list at checkout instead.",
   },
   {
-    question: "Can the gifts be branded with our company logo?",
+    question: "Can I include a personalized message?",
     answer:
-      "Concierge orders include custom ribbon, printed gift cards, and logo-embossed boxes. Self-serve orders ship in our signature packaging with a personalized note from your team.",
+      "Always. Every gift includes a personalized note from your team. Custom orders can add printed cards, branded ribbon, and hand-written messages at scale.",
   },
   {
-    question: "Do you offer invoicing and purchase orders?",
+    question: "What's the minimum order for bulk gifting?",
     answer:
-      "Concierge orders can be paid by invoice, purchase order, or card, with net terms available for qualifying companies. Self-serve checkout accepts all major cards and issues an itemized receipt instantly.",
+      "There's no hard minimum, but custom and bulk pricing is designed for sends of roughly 50 recipients and up. For smaller groups, self-service is faster and just as thoughtful.",
   },
   {
-    question: "How quickly can everything ship?",
+    question: "Can you customize packaging?",
     answer:
-      "Every gift is dispatched within 48 hours of roasting for freshness. Self-serve orders typically arrive in 3–5 business days. For large concierge sends, we agree on a delivery window up front and hit it.",
+      "Yes — custom orders include logo-embossed boxes, branded ribbon, printed cards, and curated accompaniments. Share what you have in mind and we'll compose something that feels unmistakably yours.",
   },
   {
-    question: "Who do I contact if something goes wrong?",
+    question: "How long does shipping take?",
     answer:
-      "Concierge clients have a single named specialist from first email to final delivery. Self-serve orders are supported by our North Beach team by email, with most replies inside one business day.",
+      "Every gift is dispatched within 48 hours of roasting for freshness. Self-service orders typically arrive in 3–5 business days; for large custom sends we agree on a delivery window up front and hit it.",
+  },
+  {
+    question: "Who should I contact for custom requests?",
+    answer:
+      "Email gifting@graffeo.com and a dedicated specialist will guide you from first note to final delivery — one point of contact the whole way through.",
   },
 ];

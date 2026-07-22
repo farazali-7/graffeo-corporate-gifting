@@ -35,7 +35,7 @@ export function SiteHeader() {
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-colors duration-500 ease-[var(--ease-editorial)]",
+        "sticky top-0 z-40 transition-colors duration-[var(--duration-hover)] ease-[var(--ease-editorial)]",
         scrolled
           ? "border-b border-line/80 bg-paper/85 backdrop-blur-md"
           : "border-b border-transparent bg-transparent",
@@ -46,7 +46,7 @@ export function SiteHeader() {
         aria-label="Primary"
         className={cn(
           "flex items-center justify-between gap-8 transition-[height] duration-500 ease-[var(--ease-editorial)]",
-          scrolled ? "h-16" : "h-20",
+          scrolled ? "h-[4.75rem]" : "h-24",
         )}
       >
         <Wordmark />

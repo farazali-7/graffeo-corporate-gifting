@@ -4,17 +4,26 @@ import { Button } from "@/components/ui/button";
 import { Eyebrow } from "@/components/ui/eyebrow";
 import { MediaFrame } from "@/components/ui/media-frame";
 import { Reveal, RevealItem, MaskReveal } from "@/components/ui/reveal";
+import { GIFTING_CONTACT_EMAIL, GIFTING_STORE_URL } from "@/data/gifting";
+
+/** Compact trust signals that reassure a corporate buyer at first glance. */
+const TRUST_POINTS = [
+  "Since 1935",
+  "Family-Owned",
+  "San Francisco",
+  "Thousands of happy customers",
+];
 
 /**
- * Hero — the page's thesis in one screen: corporate gifting, made effortless,
- * from a heritage roaster. Owns the single primary CTA and an editorial
- * image frame with a mask reveal.
+ * Hero — the page's most important section. Its job is not to sell coffee but
+ * to answer "what do I do next?" by naming both gifting paths immediately.
+ * Content leads; the lifestyle image supports.
  */
 export function Hero() {
   return (
     <section
       id="top"
-      className="texture-grain relative isolate overflow-hidden bg-paper pb-20 pt-32 sm:pb-28 sm:pt-36 lg:pb-32 lg:pt-44"
+      className="texture-grain relative isolate flex min-h-[88vh] items-center overflow-hidden bg-paper py-16 sm:py-20 lg:py-24"
     >
       {/* Warm ambient wash for depth behind the type */}
       <div
@@ -30,45 +39,50 @@ export function Hero() {
           </Reveal>
 
           <h1 className="mt-7 font-display text-[length:var(--text-display)] font-normal leading-[var(--text-display--line-height)] text-ink">
-            <MaskReveal delay={0.1}>Unforgettable</MaskReveal>
-            <MaskReveal delay={0.2}>coffee gifts,</MaskReveal>
+            <MaskReveal delay={0.1}>Thoughtful coffee</MaskReveal>
+            <MaskReveal delay={0.2}>gifts for clients,</MaskReveal>
             <MaskReveal delay={0.3}>
-              <span className="italic text-forest">without</span> the
+              teams &amp; <span className="italic text-forest">partners</span>.
             </MaskReveal>
-            <MaskReveal delay={0.4}>logistics.</MaskReveal>
           </h1>
 
-          <Reveal stagger delay={0.55} className="mt-8 flex flex-col gap-8">
+          <Reveal stagger delay={0.5} className="mt-8 flex flex-col gap-8">
             <RevealItem
               as="span"
               className="block max-w-xl text-[length:var(--text-lead)] leading-[var(--text-lead--line-height)] text-olive-muted"
             >
-              Send small-batch coffee to clients, teams, and partners — one
-              order, one invoice, zero chased addresses. Roasted in North Beach,
-              San Francisco, and dispatched within 48 hours.
+              Whether you&rsquo;re sending appreciation gifts to five clients or
+              holiday gifts to five hundred employees, we&rsquo;ll help you
+              choose the right gifting experience.
             </RevealItem>
 
             <RevealItem className="flex flex-col gap-3 sm:flex-row sm:items-center">
               <Button asChild size="lg">
-                <a href="#choose">
-                  Start a Gift Order
+                <a href={GIFTING_STORE_URL}>
+                  Start Self-Service Order
                   <ArrowRight
-                    className="size-4 transition-transform duration-300 ease-[var(--ease-editorial)] group-hover/button:translate-x-1"
+                    className="size-4 transition-transform duration-[var(--duration-hover)] ease-[var(--ease-editorial)] group-hover/button:translate-x-1"
                     strokeWidth={1.75}
                   />
                 </a>
               </Button>
               <Button asChild size="lg" variant="secondary">
-                <a href="#choose">Compare the Options</a>
+                <a href={`mailto:${GIFTING_CONTACT_EMAIL}`}>Talk About Bulk Orders</a>
               </Button>
             </RevealItem>
 
             <RevealItem
-              as="span"
-              className="flex items-center gap-3 text-sm text-olive-faint"
+              as="ul"
+              className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-olive-faint"
             >
-              <span aria-hidden className="h-px w-6 bg-line-strong" />
-              Trusted by 500+ companies last gifting season
+              {TRUST_POINTS.map((point, index) => (
+                <li key={point} className="flex items-center gap-5">
+                  {index > 0 ? (
+                    <span aria-hidden className="size-1 rounded-full bg-brass/60" />
+                  ) : null}
+                  {point}
+                </li>
+              ))}
             </RevealItem>
           </Reveal>
         </div>

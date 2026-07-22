@@ -1,3 +1,4 @@
+import { Check, Minus } from "lucide-react";
 import { Section } from "@/components/ui/section";
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
@@ -6,9 +7,29 @@ import { COMPARISON_ICONS, COMPARISON_ROWS } from "@/data/gifting";
 import { cn } from "@/lib/utils";
 
 const HEADS = [
-  { key: "selfServe", label: "Self-Serve", icon: COMPARISON_ICONS.selfServe },
-  { key: "concierge", label: "Concierge", icon: COMPARISON_ICONS.concierge },
+  { key: "selfServe", label: "Self-Service", icon: COMPARISON_ICONS.selfServe },
+  { key: "concierge", label: "Custom + Bulk", icon: COMPARISON_ICONS.concierge },
 ] as const;
+
+/** Renders a boolean as an on-brand check/dash glyph, or a string verbatim. */
+function ComparisonValue({ value }: { value: string | boolean }) {
+  if (typeof value === "boolean") {
+    return value ? (
+      <span className="inline-flex items-center text-forest">
+        <span className="grid size-5 place-items-center rounded-full bg-forest/10">
+          <Check className="size-3" strokeWidth={2.5} />
+        </span>
+        <span className="sr-only">Included</span>
+      </span>
+    ) : (
+      <span className="inline-flex items-center text-olive-faint">
+        <Minus className="size-4" strokeWidth={1.75} aria-hidden />
+        <span className="sr-only">Not included</span>
+      </span>
+    );
+  }
+  return <>{value}</>;
+}
 
 /**
  * "Compare the options" — resolves any lingering doubt. A semantic table on
@@ -30,7 +51,7 @@ export function Comparison() {
           <div className="overflow-hidden rounded-card border border-line">
             <table className="w-full border-collapse text-left">
               <caption className="sr-only">
-                Comparison of Graffeo self-serve gifting and concierge program
+                Comparison of Graffeo self-service and custom + bulk gifting
               </caption>
               <thead>
                 <tr className="bg-cream">
@@ -38,7 +59,7 @@ export function Comparison() {
                     scope="col"
                     className="w-2/5 px-6 py-5 text-sm font-medium uppercase tracking-eyebrow text-olive-faint"
                   >
-                    Criterion
+                    Feature
                   </th>
                   {HEADS.map(({ key, label, icon: Icon }) => (
                     <th
@@ -61,7 +82,7 @@ export function Comparison() {
               </thead>
               <tbody className="divide-y divide-line">
                 {COMPARISON_ROWS.map((row) => (
-                  <tr key={row.criterion} className="align-top">
+                  <tr key={row.criterion} className="align-middle">
                     <th
                       scope="row"
                       className="px-6 py-5 text-[0.95rem] font-medium text-ink"
@@ -69,10 +90,10 @@ export function Comparison() {
                       {row.criterion}
                     </th>
                     <td className="px-6 py-5 text-[0.95rem] text-olive-muted">
-                      {row.selfServe}
+                      <ComparisonValue value={row.selfServe} />
                     </td>
                     <td className="bg-forest/[0.04] px-6 py-5 text-[0.95rem] text-ink">
-                      {row.concierge}
+                      <ComparisonValue value={row.concierge} />
                     </td>
                   </tr>
                 ))}
@@ -93,12 +114,14 @@ export function Comparison() {
               </p>
               <dl className="mt-4 grid grid-cols-2 gap-4">
                 {HEADS.map(({ key, label }) => (
-                  <div key={key} className="flex flex-col gap-1">
+                  <div key={key} className="flex flex-col gap-1.5">
                     <dt className="text-[0.75rem] font-medium text-forest">
                       {label}
                     </dt>
                     <dd className="text-[0.9rem] text-ink">
-                      {key === "selfServe" ? row.selfServe : row.concierge}
+                      <ComparisonValue
+                        value={key === "selfServe" ? row.selfServe : row.concierge}
+                      />
                     </dd>
                   </div>
                 ))}
