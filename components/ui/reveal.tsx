@@ -1,7 +1,14 @@
 "use client";
 
 import { type ReactNode } from "react";
-import { motion, useReducedMotion, type Variants } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
+import {
+  DURATION,
+  EASE_EDITORIAL,
+  fadeUpVariants,
+  REVEAL_VIEWPORT,
+  staggerVariants,
+} from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
 type RevealTag =
@@ -26,26 +33,9 @@ interface RevealProps {
   stagger?: boolean;
 }
 
-// Brand motion spec: organic editorial easing, slow and never springy.
-const EASE = [0.22, 0.61, 0.36, 1] as const;
-const DURATION = 0.7;
-const STAGGER = 0.12; // 120ms between related elements
-
-const container: Variants = {
-  hidden: {},
-  visible: {
-    transition: { staggerChildren: STAGGER, delayChildren: 0.05 },
-  },
-};
-
-const item: Variants = {
-  hidden: { opacity: 0, y: 24 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: DURATION, ease: EASE },
-  },
-};
+// Motion timing/easing come from the central motion system (@/lib/motion).
+const container = staggerVariants();
+const item = fadeUpVariants;
 
 /**
  * The single scroll-reveal primitive: a gentle fade-and-rise on entry.
@@ -72,9 +62,11 @@ export function Reveal({
       className={className}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.25 }}
+      viewport={REVEAL_VIEWPORT}
       variants={stagger ? container : item}
-      transition={stagger ? undefined : { delay, duration: DURATION, ease: EASE }}
+      transition={
+        stagger ? undefined : { delay, duration: DURATION.slow, ease: EASE_EDITORIAL }
+      }
     >
       {children}
     </MotionTag>
@@ -140,7 +132,7 @@ export function MaskReveal({
         initial={{ y: "110%" }}
         whileInView={{ y: "0%" }}
         viewport={{ once: true, amount: 0.6 }}
-        transition={{ duration, ease: EASE, delay }}
+        transition={{ duration, ease: EASE_EDITORIAL, delay }}
       >
         {children}
       </motion.span>

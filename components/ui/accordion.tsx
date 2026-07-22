@@ -3,6 +3,7 @@
 import { useId, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { ChevronDown } from "lucide-react";
+import { EASE_EDITORIAL } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 import type { FaqItem } from "@/types";
 
@@ -88,7 +89,7 @@ function AccordionRow({ item, isOpen, onToggle }: AccordionRowProps) {
             initial={reduceMotion ? false : { height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={reduceMotion ? { opacity: 0 } : { height: 0, opacity: 0 }}
-            transition={{ duration: 0.42, ease: [0.22, 0.61, 0.36, 1] }}
+            transition={{ duration: 0.42, ease: EASE_EDITORIAL }}
             className="overflow-hidden"
           >
             <p className="max-w-2xl pb-7 pr-12 text-[1.0625rem] leading-relaxed text-olive-muted">

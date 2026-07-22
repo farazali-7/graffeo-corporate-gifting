@@ -4,6 +4,7 @@ import { useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { ArrowRight, X } from "lucide-react";
 import { Container } from "@/components/ui/container";
+import { EASE_EDITORIAL } from "@/lib/motion";
 import { ANNOUNCEMENT } from "@/data/navigation";
 
 /**
@@ -23,7 +24,7 @@ export function AnnouncementBar() {
           initial={reduceMotion ? false : { height: 0, opacity: 0 }}
           animate={{ height: "auto", opacity: 1 }}
           exit={reduceMotion ? { opacity: 0 } : { height: 0, opacity: 0 }}
-          transition={{ duration: 0.5, ease: [0.22, 0.61, 0.36, 1] }}
+          transition={{ duration: 0.5, ease: EASE_EDITORIAL }}
           className="overflow-hidden bg-forest text-paper"
         >
           <Container className="relative flex h-10 items-center justify-center gap-x-3 gap-y-1 text-center">

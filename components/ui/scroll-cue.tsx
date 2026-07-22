@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
+import { EASE_EDITORIAL } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
 /**
@@ -17,7 +18,7 @@ export function ScrollCue({ className }: { className?: string }) {
       className={cn("flex items-center gap-3", className)}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ delay: 2, duration: 0.6, ease: [0.22, 0.61, 0.36, 1] }}
+      transition={{ delay: 2, duration: 0.6, ease: EASE_EDITORIAL }}
     >
       <span className="text-[0.625rem] font-medium uppercase tracking-eyebrow text-olive-faint">
         Scroll

@@ -1,7 +1,7 @@
 import { ReadingProgress } from "@/components/ui/reading-progress";
 import { AnnouncementBar } from "@/components/sections/announcement-bar";
 import { SiteHeader } from "@/components/sections/site-header";
-import { Hero } from "@/components/sections/hero";
+import { Hero } from "@/components/sections/hero/hero";
 import { HeritageStrip } from "@/components/sections/heritage-strip";
 import { ChoosePath } from "@/components/sections/choose-path";
 import { Comparison } from "@/components/sections/comparison";

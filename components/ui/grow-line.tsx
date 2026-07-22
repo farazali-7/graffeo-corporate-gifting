@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
+import { EASE_EDITORIAL } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
 /**
@@ -21,7 +22,7 @@ export function GrowLine({ className }: { className?: string }) {
         initial={reduceMotion ? false : { scaleX: 0 }}
         whileInView={{ scaleX: 1 }}
         viewport={{ once: true, amount: 0.5 }}
-        transition={{ duration: 1.1, ease: [0.22, 0.61, 0.36, 1] }}
+        transition={{ duration: 1.1, ease: EASE_EDITORIAL }}
       />
     </span>
   );
