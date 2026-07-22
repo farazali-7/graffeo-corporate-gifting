@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -e \"console.log\\(require\\('@radix-ui/react-slot/package.json'\\).version\\)\")"
+    ]
+  }
+}
