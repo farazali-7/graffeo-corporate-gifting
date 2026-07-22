@@ -56,8 +56,8 @@
   --radius-pill: 999px;
 
   /* ----- Elevation: restrained, never floating-SaaS ----- */
-  --shadow-card: 0 8px 24px rgba(20, 30, 24, 0.05);
-  --shadow-lift: 0 16px 40px rgba(20, 30, 24, 0.08);
+  --shadow-card: 0 12px 30px rgba(20, 30, 24, 0.06);
+  --shadow-lift: 0 20px 45px rgba(20, 30, 24, 0.08);
   --shadow-button: 0 8px 20px -6px rgba(22, 63, 48, 0.35);
 
   /* ----- Motion: slow, organic, editorial ----- */
@@ -148,6 +148,19 @@
       ),
       url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.06'/%3E%3C/svg%3E");
     mix-blend-mode: multiply;
+  }
+
+  /* Site-wide grain: a fixed ~1.5% noise veil that makes flat fields feel
+     like paper. GPU-cheap, pointer-transparent, and set behind all content. */
+  .site-noise {
+    position: fixed;
+    inset: 0;
+    /* Above opaque section fills, below the header, nav and progress bar. */
+    z-index: 30;
+    pointer-events: none;
+    opacity: 0.015;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='s'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23s)'/%3E%3C/svg%3E");
   }
 
   /* Barely-there coffee-bean motif for the dark closing field */

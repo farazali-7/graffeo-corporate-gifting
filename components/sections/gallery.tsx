@@ -17,6 +17,7 @@ export function Gallery() {
     <Section id="gallery" tone="cream">
       <Container>
         <SectionHeading
+          index="05"
           eyebrow="Gifting, Pictured"
           title="What it looks like to be remembered."
           description="From a single client note to a conference full of welcome kits — a glimpse of the moments our coffee gets to be part of."

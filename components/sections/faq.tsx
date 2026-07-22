@@ -4,6 +4,7 @@ import { SectionHeading } from "@/components/ui/section-heading";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
 import { Accordion } from "@/components/ui/accordion";
+import { FaqJsonLd } from "@/components/seo/json-ld";
 import { FAQS } from "@/data/content";
 
 /**
@@ -14,9 +15,11 @@ import { FAQS } from "@/data/content";
 export function Faq() {
   return (
     <Section id="faq" tone="deep">
+      <FaqJsonLd items={FAQS} />
       <Container>
         <SectionHeading
           align="center"
+          index="06"
           eyebrow="Before You Ask"
           title="Questions, answered."
           description="The things corporate buyers ask most — so you can move without waiting on a reply."

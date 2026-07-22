@@ -3,6 +3,7 @@ import { Section } from "@/components/ui/section";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { Eyebrow } from "@/components/ui/eyebrow";
+import { BrassDivider } from "@/components/ui/brass-divider";
 import { Reveal, RevealItem } from "@/components/ui/reveal";
 import { GIFTING_CONTACT_EMAIL, GIFTING_STORE_URL } from "@/data/gifting";
 
@@ -30,6 +31,10 @@ export function FinalCta() {
           stagger
           className="mx-auto flex max-w-2xl flex-col items-center gap-8 py-8 text-center sm:py-12"
         >
+          <RevealItem as="div">
+            <BrassDivider tone="onDark" />
+          </RevealItem>
+
           <RevealItem as="span">
             <Eyebrow tone="onDark">Ready When You Are</Eyebrow>
           </RevealItem>

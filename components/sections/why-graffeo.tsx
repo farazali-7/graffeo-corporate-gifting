@@ -16,6 +16,7 @@ export function WhyGraffeo() {
       <Container>
         <SectionHeading
           align="center"
+          index="04"
           eyebrow="Why Graffeo"
           title="Crafted with nearly a century of care."
           description="The reasons companies choose us are the same reasons they come back — quietly, season after season."

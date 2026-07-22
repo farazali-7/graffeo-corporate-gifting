@@ -7,6 +7,8 @@ import type { GiftingPath } from "@/types";
 
 interface PathCardProps {
   path: GiftingPath;
+  /** Marks this card as the assistant's recommendation for the buyer. */
+  recommended?: boolean;
 }
 
 /**
@@ -15,8 +17,9 @@ interface PathCardProps {
  * primary route; the custom path stays quietly premium on warm white. The
  * entire panel is a single stretched link, so a click anywhere routes the
  * buyer onward, while the whole card lifts before the cursor reaches the CTA.
+ * When the decision assistant recommends it, the panel gains a quiet ring.
  */
-export function PathCard({ path }: PathCardProps) {
+export function PathCard({ path, recommended = false }: PathCardProps) {
   const featured = Boolean(path.featured);
   const Icon = path.icon;
 
@@ -31,9 +34,15 @@ export function PathCard({ path }: PathCardProps) {
         featured
           ? "border-forest-deep bg-forest-deep text-paper"
           : "border-line bg-cream text-ink hover:border-line-strong",
+        recommended &&
+          "shadow-[var(--shadow-lift)] ring-2 ring-brass ring-offset-2 ring-offset-paper",
       )}
     >
-      {featured ? (
+      {recommended ? (
+        <span className="absolute right-8 top-8 rounded-pill bg-brass px-3 py-1 text-[0.6875rem] font-medium uppercase tracking-eyebrow text-forest-deep">
+          Recommended for you
+        </span>
+      ) : featured ? (
         <span className="absolute right-8 top-8 rounded-pill bg-brass px-3 py-1 text-[0.6875rem] font-medium uppercase tracking-eyebrow text-forest-deep">
           Most Popular
         </span>

@@ -4,6 +4,13 @@ import { cn } from "@/lib/utils";
 /** Hover zoom intensity. Restrained by design: 1.01 → 1.03 at most. */
 type Zoom = "none" | "subtle" | "normal" | "lg";
 
+/**
+ * A warm, paper-toned blur placeholder. Prevents any cold flash before a
+ * priority image decodes, so the hero feels instant.
+ */
+const WARM_BLUR =
+  "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='10'%3E%3Crect width='8' height='10' fill='%23e7ddd0'/%3E%3C/svg%3E";
+
 interface MediaFrameProps {
   src: string;
   alt: string;
@@ -15,6 +22,8 @@ interface MediaFrameProps {
   className?: string;
   /** Restrained hover zoom on the image (used within grouped, hoverable cards). */
   zoom?: Zoom;
+  /** Show the warm blur-up placeholder (recommended for the priority hero). */
+  blur?: boolean;
 }
 
 const ZOOM_CLASS: Record<Zoom, string> = {
@@ -40,6 +49,7 @@ export function MediaFrame({
   priority = false,
   className,
   zoom = "none",
+  blur = false,
 }: MediaFrameProps) {
   return (
     <div
@@ -55,6 +65,8 @@ export function MediaFrame({
         fill
         priority={priority}
         sizes={sizes}
+        placeholder={blur ? "blur" : "empty"}
+        blurDataURL={blur ? WARM_BLUR : undefined}
         className={cn("object-cover", ZOOM_CLASS[zoom])}
       />
     </div>

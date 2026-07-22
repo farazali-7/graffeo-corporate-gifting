@@ -20,6 +20,7 @@ export function HeroImage() {
               aspect="aspect-[4/5]"
               sizes="(max-width: 1024px) 100vw, 42vw"
               priority
+              blur
               zoom="subtle"
               className="rounded-[1.25rem] shadow-[var(--shadow-lift)]"
             />

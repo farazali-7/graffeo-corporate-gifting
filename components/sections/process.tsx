@@ -15,6 +15,7 @@ export function Process() {
     <Section id="process" tone="cream">
       <Container>
         <SectionHeading
+          index="03"
           eyebrow="How It Works"
           title="Four steps, and the hard parts are ours."
           description="You bring the intention; we carry the logistics — including the address-chasing and packing that usually eat an afternoon."

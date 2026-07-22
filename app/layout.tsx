@@ -73,6 +73,8 @@ export default function RootLayout({
           <body> before hydration; suppress the resulting attribute mismatch
           on this node only — it does not affect children. */}
       <body className="min-h-dvh font-sans" suppressHydrationWarning>
+        {/* Site-wide paper grain veil (decorative) */}
+        <div aria-hidden className="site-noise" />
         {children}
       </body>
     </html>

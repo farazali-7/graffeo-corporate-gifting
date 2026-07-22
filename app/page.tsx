@@ -11,6 +11,8 @@ import { Gallery } from "@/components/sections/gallery";
 import { Faq } from "@/components/sections/faq";
 import { FinalCta } from "@/components/sections/final-cta";
 import { SiteFooter } from "@/components/sections/site-footer";
+import { StickyDecisionReminder } from "@/components/sections/sticky-decision-reminder";
+import { OrganizationJsonLd } from "@/components/seo/json-ld";
 
 /**
  * Corporate gifting landing page. The section order follows the brief's
@@ -27,6 +29,7 @@ export default function CorporateGiftingPage() {
         Skip to gifting options
       </a>
 
+      <OrganizationJsonLd />
       <ReadingProgress />
       <AnnouncementBar />
       <SiteHeader />
@@ -44,6 +47,8 @@ export default function CorporateGiftingPage() {
       </main>
 
       <SiteFooter />
+
+      <StickyDecisionReminder />
     </>
   );
 }
