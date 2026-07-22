@@ -150,6 +150,12 @@
     mix-blend-mode: multiply;
   }
 
+  /* Barely-there coffee-bean motif for the dark closing field */
+  .bean-motif {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Cg fill='none' stroke='%23FBF8F2' stroke-width='1.5'%3E%3Cellipse cx='20' cy='20' rx='7' ry='11' transform='rotate(35 20 20)'/%3E%3Cpath d='M16 13 Q22 20 24 27'/%3E%3Cellipse cx='52' cy='50' rx='7' ry='11' transform='rotate(-20 52 50)'/%3E%3Cpath d='M56 43 Q50 50 48 57'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 72px 72px;
+  }
+
   .text-balance {
     text-wrap: balance;
   }

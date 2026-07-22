@@ -15,6 +15,7 @@ export interface FooterColumn {
 /** One of the two primary purchasing paths the page routes buyers toward. */
 export interface GiftingPath {
   id: "self-serve" | "concierge";
+  icon: LucideIcon;
   eyebrow: string;
   title: string;
   description: string;
@@ -57,9 +58,8 @@ export interface GalleryItem {
   caption: string;
   image: string;
   alt: string;
-  /** Optional emphasis to drive an editorial, non-uniform masonry rhythm. */
-  wide?: boolean;
-  tall?: boolean;
+  /** Aspect-ratio utility (e.g. "aspect-[4/5]") for editorial, mixed heights. */
+  ratio: string;
 }
 
 /** A question/answer pair for the accessible FAQ accordion. */

@@ -21,7 +21,7 @@ export function Container({
   return (
     <Component
       className={cn(
-        "mx-auto w-full px-6 sm:px-8 lg:px-12",
+        "mx-auto w-full px-6 md:px-12 lg:px-20",
         width === "default" ? "max-w-[var(--container-max)]" : "max-w-[var(--container-prose)]",
         className,
       )}

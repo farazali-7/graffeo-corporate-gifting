@@ -56,7 +56,7 @@ function AccordionRow({ item, isOpen, onToggle }: AccordionRowProps) {
           aria-controls={panelId}
           onClick={onToggle}
           className={cn(
-            "group flex w-full items-center justify-between gap-6 py-6 text-left",
+            "group flex w-full items-center justify-between gap-6 py-7 text-left",
             "transition-colors duration-300 ease-[var(--ease-editorial)]",
             "min-h-[44px] hover:text-forest focus-visible:text-forest",
           )}

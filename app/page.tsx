@@ -1,3 +1,4 @@
+import { ReadingProgress } from "@/components/ui/reading-progress";
 import { AnnouncementBar } from "@/components/sections/announcement-bar";
 import { SiteHeader } from "@/components/sections/site-header";
 import { Hero } from "@/components/sections/hero";
@@ -26,6 +27,7 @@ export default function CorporateGiftingPage() {
         Skip to gifting options
       </a>
 
+      <ReadingProgress />
       <AnnouncementBar />
       <SiteHeader />
 

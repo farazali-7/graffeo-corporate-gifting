@@ -11,7 +11,7 @@ export function HeritageStrip() {
     <section
       id="heritage"
       aria-label="Graffeo by the numbers"
-      className="border-y border-line bg-paper-deep"
+      className="border-y border-line bg-cream"
     >
       <Container>
         <Reveal

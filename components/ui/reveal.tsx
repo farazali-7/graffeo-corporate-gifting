@@ -12,7 +12,9 @@ type RevealTag =
   | "ul"
   | "ol"
   | "p"
-  | "figure";
+  | "figure"
+  | "tbody"
+  | "tr";
 
 interface RevealProps {
   children: ReactNode;

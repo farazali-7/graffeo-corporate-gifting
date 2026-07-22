@@ -7,19 +7,29 @@ import { Reveal, RevealItem } from "@/components/ui/reveal";
 import { GIFTING_CONTACT_EMAIL, GIFTING_STORE_URL } from "@/data/gifting";
 
 /**
- * The closing action. Restates the fork one last time — send now, or speak to
- * a specialist — so no visitor leaves without a clear next click.
+ * The closing action — a full forest field that deliberately breaks the
+ * page's light rhythm. Restates the fork one last time so no visitor leaves
+ * without a clear next click, over a barely-there coffee-bean motif.
  */
 export function FinalCta() {
   return (
-    <Section id="final-cta" tone="deep" grain spacing="tight">
-      <Container className="relative overflow-hidden rounded-card border border-forest/15 bg-forest-deep px-6 py-16 text-center sm:px-12 sm:py-20 lg:py-24">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute left-1/2 top-0 -z-0 h-72 w-72 -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(183,138,74,0.26),transparent_65%)] blur-2xl"
-        />
+    <Section id="final-cta" tone="forest" className="overflow-hidden">
+      {/* Coffee-bean motif, ~6% opacity */}
+      <div
+        aria-hidden
+        className="bean-motif pointer-events-none absolute inset-0 -z-10 opacity-[0.06]"
+      />
+      {/* Soft warm glow */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(183,138,74,0.22),transparent_65%)] blur-2xl"
+      />
 
-        <Reveal stagger className="relative z-10 mx-auto flex max-w-2xl flex-col items-center gap-7">
+      <Container>
+        <Reveal
+          stagger
+          className="mx-auto flex max-w-2xl flex-col items-center gap-8 py-8 text-center sm:py-12"
+        >
           <RevealItem as="span">
             <Eyebrow tone="onDark">Ready When You Are</Eyebrow>
           </RevealItem>
@@ -28,15 +38,16 @@ export function FinalCta() {
             as="span"
             className="block font-display text-[length:var(--text-h1)] font-normal leading-[var(--text-h1--line-height)] text-balance text-paper"
           >
-            Ready to send great coffee?
+            Ready to make someone&rsquo;s day?
           </RevealItem>
 
           <RevealItem
             as="span"
             className="block max-w-xl text-[length:var(--text-lead)] leading-[var(--text-lead--line-height)] text-paper/70"
           >
-            Start a self-service order in minutes, or talk to our team about a
-            custom program. Either way, the logistics are ours.
+            Start a self-service order in minutes, or request a custom program
+            for something branded and at scale. Either way, the logistics are
+            ours.
           </RevealItem>
 
           <RevealItem className="mt-2 flex flex-col gap-3 sm:flex-row">
@@ -55,7 +66,7 @@ export function FinalCta() {
               variant="secondary"
               className="border-paper/25 text-paper hover:border-paper hover:bg-paper hover:text-forest-deep"
             >
-              <a href={`mailto:${GIFTING_CONTACT_EMAIL}`}>Talk to Our Team</a>
+              <a href={`mailto:${GIFTING_CONTACT_EMAIL}`}>Request Custom Order</a>
             </Button>
           </RevealItem>
         </Reveal>

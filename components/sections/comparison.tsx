@@ -2,7 +2,7 @@ import { Check, Minus } from "lucide-react";
 import { Section } from "@/components/ui/section";
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { Reveal } from "@/components/ui/reveal";
+import { Reveal, RevealItem } from "@/components/ui/reveal";
 import { COMPARISON_ICONS, COMPARISON_ROWS } from "@/data/gifting";
 import { cn } from "@/lib/utils";
 
@@ -16,7 +16,7 @@ function ComparisonValue({ value }: { value: string | boolean }) {
   if (typeof value === "boolean") {
     return value ? (
       <span className="inline-flex items-center text-forest">
-        <span className="grid size-5 place-items-center rounded-full bg-forest/10">
+        <span className="grid size-5 place-items-center rounded-full bg-forest/10 transition-transform duration-[var(--duration-hover)] ease-[var(--ease-editorial)] group-hover:scale-110">
           <Check className="size-3" strokeWidth={2.5} />
         </span>
         <span className="sr-only">Included</span>
@@ -33,12 +33,13 @@ function ComparisonValue({ value }: { value: string | boolean }) {
 
 /**
  * "Compare the options" — resolves any lingering doubt. A semantic table on
- * larger screens; on mobile the same data reflows into per-criterion cards so
- * nothing is squeezed into unreadable columns.
+ * larger screens whose rows reveal in sequence and gently highlight on hover;
+ * on mobile the same data reflows into per-criterion cards so nothing is
+ * squeezed into unreadable columns.
  */
 export function Comparison() {
   return (
-    <Section id="compare" tone="paper" spacing="tight">
+    <Section id="compare" tone="deep" spacing="tight">
       <Container>
         <SectionHeading
           eyebrow="Side by Side"
@@ -46,15 +47,15 @@ export function Comparison() {
           description="No fine print. Here is exactly how the two paths differ across the things corporate buyers actually ask about."
         />
 
-        {/* Desktop / tablet: semantic table */}
-        <Reveal className="mt-14 hidden md:block">
-          <div className="overflow-hidden rounded-card border border-line">
+        {/* Desktop / tablet: semantic table with sequential row reveal */}
+        <div className="mt-14 hidden md:block">
+          <div className="overflow-hidden rounded-card border border-line bg-cream">
             <table className="w-full border-collapse text-left">
               <caption className="sr-only">
                 Comparison of Graffeo self-service and custom + bulk gifting
               </caption>
               <thead>
-                <tr className="bg-cream">
+                <tr className="border-b border-line">
                   <th
                     scope="col"
                     className="w-2/5 px-6 py-5 text-sm font-medium uppercase tracking-eyebrow text-olive-faint"
@@ -80,27 +81,31 @@ export function Comparison() {
                   ))}
                 </tr>
               </thead>
-              <tbody className="divide-y divide-line">
+              <Reveal as="tbody" stagger className="divide-y divide-line">
                 {COMPARISON_ROWS.map((row) => (
-                  <tr key={row.criterion} className="align-middle">
+                  <RevealItem
+                    as="tr"
+                    key={row.criterion}
+                    className="group align-middle transition-colors duration-[var(--duration-hover)] hover:bg-forest/[0.035]"
+                  >
                     <th
                       scope="row"
                       className="px-6 py-5 text-[0.95rem] font-medium text-ink"
                     >
                       {row.criterion}
                     </th>
-                    <td className="px-6 py-5 text-[0.95rem] text-olive-muted">
+                    <td className="px-6 py-5 text-[0.95rem] text-olive-muted transition-colors duration-[var(--duration-hover)] group-hover:text-ink">
                       <ComparisonValue value={row.selfServe} />
                     </td>
                     <td className="bg-forest/[0.04] px-6 py-5 text-[0.95rem] text-ink">
                       <ComparisonValue value={row.concierge} />
                     </td>
-                  </tr>
+                  </RevealItem>
                 ))}
-              </tbody>
+              </Reveal>
             </table>
           </div>
-        </Reveal>
+        </div>
 
         {/* Mobile: per-criterion cards */}
         <Reveal stagger as="ul" className="mt-12 flex flex-col gap-4 md:hidden">

@@ -10,20 +10,24 @@ interface PathCardProps {
 }
 
 /**
- * One side of the decision fork. The featured (self-serve) path is rendered
- * on the forest surface to establish an unmistakable primary route, while the
- * concierge path stays quietly premium on cream.
+ * One side of the decision fork — an editorial decision panel. The featured
+ * (self-service) path sits on the forest surface to establish an unmistakable
+ * primary route; the custom path stays quietly premium on warm white. The
+ * entire panel is a single stretched link, so a click anywhere routes the
+ * buyer onward, while the whole card lifts before the cursor reaches the CTA.
  */
 export function PathCard({ path }: PathCardProps) {
   const featured = Boolean(path.featured);
+  const Icon = path.icon;
 
   return (
     <RevealItem
       as="li"
       className={cn(
-        "group relative flex flex-col overflow-hidden rounded-card border p-8 sm:p-10",
-        "transition-[transform,box-shadow,border-color] duration-500 ease-[var(--ease-editorial)]",
-        "hover:-translate-y-0.5 hover:shadow-[var(--shadow-lift)]",
+        "group relative flex flex-col overflow-hidden rounded-[1.25rem] border p-8 sm:p-12",
+        "transition-[transform,box-shadow,border-color] duration-[260ms] ease-[var(--ease-editorial)]",
+        "hover:-translate-y-1 hover:shadow-[var(--shadow-lift)]",
+        "focus-within:-translate-y-1 focus-within:shadow-[var(--shadow-lift)]",
         featured
           ? "border-forest-deep bg-forest-deep text-paper"
           : "border-line bg-cream text-ink hover:border-line-strong",
@@ -35,11 +39,23 @@ export function PathCard({ path }: PathCardProps) {
         </span>
       ) : null}
 
-      <Eyebrow tone={featured ? "onDark" : "default"}>{path.eyebrow}</Eyebrow>
+      {/* Top icon */}
+      <span
+        className={cn(
+          "grid size-12 place-items-center rounded-full",
+          featured ? "bg-paper/12 text-paper" : "bg-forest/8 text-forest",
+        )}
+      >
+        <Icon className="size-6" strokeWidth={1.5} />
+      </span>
+
+      <div className="mt-6">
+        <Eyebrow tone={featured ? "onDark" : "default"}>{path.eyebrow}</Eyebrow>
+      </div>
 
       <h3
         className={cn(
-          "mt-5 font-display text-[length:var(--text-h3)] font-normal leading-tight",
+          "mt-4 font-display text-[length:var(--text-h3)] font-normal leading-tight",
           featured ? "text-paper" : "text-ink",
         )}
       >
@@ -86,7 +102,7 @@ export function PathCard({ path }: PathCardProps) {
           featured ? "border-paper/15" : "border-line",
         )}
       >
-        {path.highlights.map(({ icon: Icon, label }) => (
+        {path.highlights.map(({ icon: HighlightIcon, label }) => (
           <li
             key={label}
             className={cn(
@@ -94,7 +110,7 @@ export function PathCard({ path }: PathCardProps) {
               featured ? "text-paper/70" : "text-olive-muted",
             )}
           >
-            <Icon className="size-4" strokeWidth={1.5} />
+            <HighlightIcon className="size-4" strokeWidth={1.5} />
             {label}
           </li>
         ))}
@@ -107,10 +123,14 @@ export function PathCard({ path }: PathCardProps) {
           variant={featured ? "onDark" : "secondary"}
           className="w-full sm:w-auto"
         >
-          <a href={path.cta.href}>
+          {/* Stretched link: ::after covers the whole panel, making it clickable */}
+          <a
+            href={path.cta.href}
+            className="after:absolute after:inset-0 after:rounded-[1.25rem] after:content-['']"
+          >
             {path.cta.label}
             <ArrowRight
-              className="size-4 transition-transform duration-300 ease-[var(--ease-editorial)] group-hover:translate-x-1"
+              className="size-4 transition-transform duration-[260ms] ease-[var(--ease-editorial)] group-hover:translate-x-1"
               strokeWidth={1.75}
             />
           </a>

@@ -9,12 +9,12 @@ import { cn } from "@/lib/utils";
 /**
  * Corporate-gifting inspiration. Rather than testimonials, we show what
  * gifting looks like — captioned by occasion so a buyer can picture the moment
- * that fits them. A column-based masonry gives an editorial, non-uniform
- * rhythm without stretching any image.
+ * that fits them. A column masonry with mixed aspect ratios gives an
+ * editorial, magazine-like asymmetry; captions rise in under a gentle grade.
  */
 export function Gallery() {
   return (
-    <Section id="gallery" tone="paper" grain>
+    <Section id="gallery" tone="cream">
       <Container>
         <SectionHeading
           eyebrow="Gifting, Pictured"
@@ -37,11 +37,7 @@ export function Gallery() {
                 <div
                   className={cn(
                     "media-grain relative overflow-hidden bg-stone",
-                    item.tall
-                      ? "aspect-[3/4]"
-                      : item.wide
-                        ? "aspect-[16/10]"
-                        : "aspect-[4/3]",
+                    item.ratio,
                   )}
                 >
                   <Image
@@ -50,16 +46,19 @@ export function Gallery() {
                     fill
                     priority={index === 0}
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-cover transition-transform duration-700 ease-[var(--ease-editorial)] group-hover:scale-[1.02]"
+                    className="object-cover transition-transform duration-700 ease-[var(--ease-editorial)] group-hover:scale-[1.04]"
                   />
                 </div>
-                {/* Scrim ensures caption contrast over any photograph */}
+
+                {/* Gentle gradient grade: always present on touch, hover-revealed on desktop */}
                 <div
                   aria-hidden
-                  className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-forest-deep/70 to-transparent"
+                  className="pointer-events-none absolute inset-0 bg-gradient-to-t from-forest-deep/70 via-forest-deep/10 to-transparent opacity-80 transition-opacity duration-500 ease-[var(--ease-editorial)] lg:opacity-0 lg:group-hover:opacity-100"
                 />
-                <figcaption className="absolute bottom-4 left-4">
-                  <span className="rounded-pill bg-paper/90 px-3 py-1.5 text-[0.6875rem] font-medium uppercase tracking-eyebrow text-forest-deep backdrop-blur-sm">
+
+                {/* Caption rises 8px into place on hover */}
+                <figcaption className="absolute inset-x-0 bottom-0 p-5 transition-[transform,opacity] duration-500 ease-[var(--ease-editorial)] lg:translate-y-2 lg:opacity-0 lg:group-hover:translate-y-0 lg:group-hover:opacity-100">
+                  <span className="text-sm font-medium text-paper drop-shadow-sm">
                     {item.caption}
                   </span>
                 </figcaption>

@@ -12,12 +12,12 @@ import { WHY_POINTS } from "@/data/content";
  */
 export function WhyGraffeo() {
   return (
-    <Section id="why" tone="deep">
+    <Section id="why" tone="paper">
       <Container>
         <SectionHeading
           align="center"
           eyebrow="Why Graffeo"
-          title="A gift only a heritage roaster can send."
+          title="Crafted with nearly a century of care."
           description="The reasons companies choose us are the same reasons they come back — quietly, season after season."
           className="mx-auto"
         />
@@ -38,7 +38,7 @@ export function WhyGraffeo() {
                 alt={point.alt}
                 aspect="aspect-[4/3]"
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                zoom="normal"
+                zoom="lg"
                 priority={index === 0}
               />
               <div className="flex flex-col gap-2.5">

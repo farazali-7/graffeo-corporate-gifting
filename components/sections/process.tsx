@@ -35,9 +35,9 @@ export function Process() {
                 <RevealItem
                   as="li"
                   key={step.number}
-                  className="flex flex-col items-center gap-4 text-center lg:items-start lg:text-left"
+                  className="group flex flex-col items-center gap-4 text-center transition-transform duration-[260ms] ease-[var(--ease-editorial)] hover:-translate-y-0.5 lg:items-start lg:text-left"
                 >
-                  <span className="relative z-10 grid size-16 place-items-center rounded-full border border-line-strong bg-cream text-forest shadow-[var(--shadow-card)]">
+                  <span className="relative z-10 grid size-16 place-items-center rounded-full border border-line-strong bg-cream text-forest shadow-[var(--shadow-card)] transition-colors duration-[260ms] ease-[var(--ease-editorial)] group-hover:border-forest group-hover:bg-forest group-hover:text-paper">
                     <Icon className="size-6" strokeWidth={1.5} />
                   </span>
                   <span className="text-xs font-medium uppercase tracking-eyebrow text-brass-ink">

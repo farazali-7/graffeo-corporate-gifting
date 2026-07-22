@@ -6,16 +6,6 @@ import type { FaqItem, GalleryItem, WhyPoint } from "@/types";
  */
 export const WHY_POINTS: WhyPoint[] = [
   {
-    title: "Crafted Since 1935",
-    lines: [
-      "Nearly a century of roasting in North Beach.",
-      "A recipe time has only refined.",
-    ],
-    image:
-      "https://images.unsplash.com/photo-1442550528053-c431ecb55509?auto=format&fit=crop&w=1000&q=80",
-    alt: "Dark roasted coffee beans spilling from a vintage scoop",
-  },
-  {
     title: "Family-Owned",
     lines: [
       "Three generations, one roastery.",
@@ -26,7 +16,7 @@ export const WHY_POINTS: WhyPoint[] = [
     alt: "A roaster tending to coffee beans in a traditional drum roaster",
   },
   {
-    title: "Small-Batch Roasting",
+    title: "Small Batch",
     lines: [
       "The same beans we serve celebrated kitchens.",
       "Roasted to order, never mass-produced.",
@@ -34,6 +24,16 @@ export const WHY_POINTS: WhyPoint[] = [
     image:
       "https://images.unsplash.com/photo-1509785307050-d4066910ec1e?auto=format&fit=crop&w=1000&q=80",
     alt: "Freshly roasted coffee beans cooling in a roastery tray",
+  },
+  {
+    title: "San Francisco Heritage",
+    lines: [
+      "Roasting in North Beach since 1935.",
+      "A recipe time has only refined.",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1442550528053-c431ecb55509?auto=format&fit=crop&w=1000&q=80",
+    alt: "Dark roasted coffee beans spilling from a vintage scoop",
   },
 ];
 
@@ -44,30 +44,46 @@ export const WHY_POINTS: WhyPoint[] = [
  */
 export const GALLERY_ITEMS: GalleryItem[] = [
   {
-    caption: "Client Appreciation",
-    image:
-      "https://images.unsplash.com/photo-1607344645866-009c320b63e0?auto=format&fit=crop&w=1100&q=80",
-    alt: "An elegant coffee gift box tied with ribbon on a marble table",
-    tall: true,
-  },
-  {
-    caption: "Employee Onboarding",
-    image:
-      "https://images.unsplash.com/photo-1521302080334-4bebac2763a6?auto=format&fit=crop&w=1100&q=80",
-    alt: "A welcome kit with coffee bags and a handwritten note",
-  },
-  {
-    caption: "Holiday Teams",
+    caption: "Holiday Gifts",
     image:
       "https://images.unsplash.com/photo-1512568400610-62da28bc8a13?auto=format&fit=crop&w=1100&q=80",
     alt: "Wrapped holiday coffee gifts arranged with greenery",
+    ratio: "aspect-[4/5]",
   },
   {
-    caption: "Conference Welcome Kits",
+    caption: "Client Welcome Kit",
+    image:
+      "https://images.unsplash.com/photo-1521302080334-4bebac2763a6?auto=format&fit=crop&w=1100&q=80",
+    alt: "A welcome kit with coffee bags and a handwritten note",
+    ratio: "aspect-square",
+  },
+  {
+    caption: "Executive Gift",
+    image:
+      "https://images.unsplash.com/photo-1607344645866-009c320b63e0?auto=format&fit=crop&w=1100&q=80",
+    alt: "An elegant coffee gift box tied with ribbon on a marble table",
+    ratio: "aspect-[3/4]",
+  },
+  {
+    caption: "Employee Appreciation",
     image:
       "https://images.unsplash.com/photo-1481391319762-47dff72954d9?auto=format&fit=crop&w=1300&q=80",
-    alt: "Branded coffee gifts laid out on a conference table",
-    wide: true,
+    alt: "Branded coffee gifts laid out for a team on a wooden table",
+    ratio: "aspect-[16/10]",
+  },
+  {
+    caption: "Conference Gift",
+    image:
+      "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?auto=format&fit=crop&w=1100&q=80",
+    alt: "Kraft-paper bags of coffee arranged as conference welcome gifts",
+    ratio: "aspect-square",
+  },
+  {
+    caption: "Remote Team",
+    image:
+      "https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=1100&q=80",
+    alt: "A warm cup of coffee beside beans, ready to be sent to a remote colleague",
+    ratio: "aspect-[4/5]",
   },
 ];
 

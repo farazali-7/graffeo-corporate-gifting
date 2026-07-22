@@ -7,7 +7,11 @@ import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { Wordmark } from "@/components/ui/wordmark";
 import { PRIMARY_CTA, PRIMARY_NAV } from "@/data/navigation";
+import { useActiveSection } from "@/hooks/use-active-section";
 import { cn } from "@/lib/utils";
+
+/** Section ids the nav points at, derived once from the nav model. */
+const NAV_SECTION_IDS = PRIMARY_NAV.map((link) => link.href.replace("#", ""));
 
 /**
  * Sticky site header. Transparent over the hero, then settles onto a frosted
@@ -16,6 +20,7 @@ import { cn } from "@/lib/utils";
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const activeSection = useActiveSection(NAV_SECTION_IDS);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -52,17 +57,29 @@ export function SiteHeader() {
         <Wordmark />
 
         <ul className="hidden items-center gap-9 lg:flex">
-          {PRIMARY_NAV.map((link) => (
-            <li key={link.href}>
-              <a
-                href={link.href}
-                className="group relative py-2 text-sm font-medium text-ink/80 transition-colors hover:text-forest"
-              >
-                {link.label}
-                <span className="absolute inset-x-0 -bottom-0.5 h-px origin-left scale-x-0 bg-forest transition-transform duration-300 ease-[var(--ease-editorial)] group-hover:scale-x-100" />
-              </a>
-            </li>
-          ))}
+          {PRIMARY_NAV.map((link) => {
+            const isActive = activeSection === link.href.replace("#", "");
+            return (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  aria-current={isActive ? "true" : undefined}
+                  className={cn(
+                    "group relative py-2 text-sm font-medium transition-colors",
+                    isActive ? "text-forest" : "text-ink/80 hover:text-forest",
+                  )}
+                >
+                  {link.label}
+                  <span
+                    className={cn(
+                      "absolute inset-x-0 -bottom-0.5 h-px origin-left bg-forest transition-transform duration-300 ease-[var(--ease-editorial)]",
+                      isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100",
+                    )}
+                  />
+                </a>
+              </li>
+            );
+          })}
         </ul>
 
         <div className="hidden lg:block">

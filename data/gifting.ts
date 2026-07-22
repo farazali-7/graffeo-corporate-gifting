@@ -42,6 +42,7 @@ export const HERITAGE_STATS: HeritageStat[] = [
 export const GIFTING_PATHS: GiftingPath[] = [
   {
     id: "self-serve",
+    icon: Gift,
     eyebrow: "Self-Service",
     title: "Multi-Recipient Orders",
     description:
@@ -62,6 +63,7 @@ export const GIFTING_PATHS: GiftingPath[] = [
   },
   {
     id: "concierge",
+    icon: Package,
     eyebrow: "Custom Orders",
     title: "Custom + Bulk",
     description:
@@ -92,8 +94,18 @@ export const GIFTING_PATHS: GiftingPath[] = [
 export const COMPARISON_ROWS: ComparisonRow[] = [
   { criterion: "Recipients", selfServe: "1 – 50", concierge: "50 – 5,000+" },
   { criterion: "Custom branding", selfServe: false, concierge: true },
-  { criterion: "Personalized gift notes", selfServe: true, concierge: true },
   { criterion: "Bulk pricing", selfServe: false, concierge: true },
+  { criterion: "Personalized gift notes", selfServe: true, concierge: true },
+  {
+    criterion: "Shipping",
+    selfServe: "3 – 5 business days",
+    concierge: "Scheduled window",
+  },
+  {
+    criterion: "Address collection",
+    selfServe: "Upload a list",
+    concierge: "We collect, privately",
+  },
   {
     criterion: "Support",
     selfServe: "Email & help center",
@@ -103,11 +115,6 @@ export const COMPARISON_ROWS: ComparisonRow[] = [
     criterion: "Checkout",
     selfServe: "Card, self-serve",
     concierge: "Invoice, PO or card",
-  },
-  {
-    criterion: "Shipping",
-    selfServe: "3 – 5 business days",
-    concierge: "Scheduled window",
   },
 ];
 

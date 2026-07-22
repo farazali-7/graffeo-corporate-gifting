@@ -12,7 +12,7 @@ import { GIFTING_PATHS } from "@/data/gifting";
  */
 export function ChoosePath() {
   return (
-    <Section id="choose" tone="deep" spacing="default">
+    <Section id="choose" tone="paper" spacing="default">
       <Container>
         <SectionHeading
           align="center"

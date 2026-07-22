@@ -1,8 +1,8 @@
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 
-/** Hover zoom intensity. "subtle" is an almost-invisible 1.01; "normal" 1.02. */
-type Zoom = "none" | "subtle" | "normal";
+/** Hover zoom intensity. Restrained by design: 1.01 → 1.03 at most. */
+type Zoom = "none" | "subtle" | "normal" | "lg";
 
 interface MediaFrameProps {
   src: string;
@@ -23,6 +23,7 @@ const ZOOM_CLASS: Record<Zoom, string> = {
     "transition-transform duration-700 ease-[var(--ease-editorial)] group-hover:scale-[1.01]",
   normal:
     "transition-transform duration-700 ease-[var(--ease-editorial)] group-hover:scale-[1.02]",
+  lg: "transition-transform duration-700 ease-[var(--ease-editorial)] group-hover:scale-[1.03]",
 };
 
 /**

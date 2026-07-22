@@ -8,29 +8,35 @@ import { FAQS } from "@/data/content";
 
 /**
  * "Frequently asked" — deliberately front-and-centre to answer the exact
- * questions that generate support tickets before they're ever sent. An
- * editorial two-column layout keeps the heading anchored while answers scroll.
+ * questions that generate support tickets before they're ever sent. A single
+ * centred column (≈820px) keeps the focus on reading and resolving doubt.
  */
 export function Faq() {
   return (
-    <Section id="faq" tone="paper">
-      <Container className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
-        <div className="lg:sticky lg:top-28 lg:self-start">
-          <SectionHeading
-            eyebrow="Before You Ask"
-            title="Questions, answered."
-            description="The things corporate buyers ask most — so you can move without waiting on a reply."
-          />
-          <Reveal delay={0.15} className="mt-8">
+    <Section id="faq" tone="deep">
+      <Container>
+        <SectionHeading
+          align="center"
+          eyebrow="Before You Ask"
+          title="Questions, answered."
+          description="The things corporate buyers ask most — so you can move without waiting on a reply."
+          className="mx-auto"
+        />
+
+        <div className="mx-auto mt-12 w-full max-w-[820px] lg:mt-16">
+          <Reveal>
+            <Accordion items={FAQS} defaultOpen={0} />
+          </Reveal>
+
+          <Reveal delay={0.1} className="mt-12 flex flex-col items-center gap-4 text-center">
+            <p className="text-[0.95rem] text-olive-muted">
+              Still have a question we haven&rsquo;t answered?
+            </p>
             <Button asChild variant="secondary" size="md">
-              <a href="#final-cta">Still have a question?</a>
+              <a href="#final-cta">Talk to our gifting team</a>
             </Button>
           </Reveal>
         </div>
-
-        <Reveal>
-          <Accordion items={FAQS} defaultOpen={0} />
-        </Reveal>
       </Container>
     </Section>
   );
